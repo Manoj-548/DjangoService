@@ -1,0 +1,146 @@
+[
+  {
+    "model": "coding_resources.category",
+    "pk": 1,
+    "fields": {
+      "name": "Python Programming",
+      "description": "Learn Python from basics to advanced"
+    }
+  },
+  {
+    "model": "coding_resources.category",
+    "pk": 2,
+    "fields": {
+      "name": "Web Development",
+      "description": "Build modern web applications"
+    }
+  },
+  {
+    "model": "coding_resources.category",
+    "pk": 3,
+    "fields": {
+      "name": "Data Science",
+      "description": "Analyze and visualize data"
+    }
+  },
+  {
+    "model": "coding_resources.topic",
+    "pk": 1,
+    "fields": {
+      "title": "Python Basics",
+      "description": "Fundamental concepts of Python",
+      "category": 1
+    }
+  },
+  {
+    "model": "coding_resources.topic",
+    "pk": 2,
+    "fields": {
+      "title": "Object-Oriented Programming",
+      "description": "Classes, objects, and inheritance",
+      "category": 1
+    }
+  },
+  {
+    "model": "coding_resources.topic",
+    "pk": 3,
+    "fields": {
+      "title": "HTML & CSS",
+      "description": "Structure and style web pages",
+      "category": 2
+    }
+  },
+  {
+    "model": "coding_resources.topic",
+    "pk": 4,
+    "fields": {
+      "title": "JavaScript",
+      "description": "Interactive web development",
+      "category": 2
+    }
+  },
+  {
+    "model": "coding_resources.topic",
+    "pk": 5,
+    "fields": {
+      "title": "Pandas",
+      "description": "Data manipulation and analysis",
+      "category": 3
+    }
+  },
+  {
+    "model": "coding_resources.topic",
+    "pk": 6,
+    "fields": {
+      "title": "Matplotlib",
+      "description": "Data visualization",
+      "category": 3
+    }
+  },
+  {
+    "model": "coding_resources.codesnippet",
+    "pk": 1,
+    "fields": {
+      "title": "Hello World",
+      "code": "print(\"Hello, World!\")",
+      "language": "python",
+      "description": "Basic print statement",
+      "topic": 1
+    }
+  },
+  {
+    "model": "coding_resources.codesnippet",
+    "pk": 2,
+    "fields": {
+      "title": "Class Definition",
+      "code": "class Person:\n    def __init__(self, name):\n        self.name = name\n    \n    def greet(self):\n        return f\"Hello, {self.name}!\"",
+      "language": "python",
+      "description": "Simple class with constructor and method",
+      "topic": 2
+    }
+  },
+  {
+    "model": "coding_resources.codesnippet",
+    "pk": 3,
+    "fields": {
+      "title": "HTML Structure",
+      "code": "<!DOCTYPE html>\n<html lang=\"en\">\n<head>\n    <meta charset=\"UTF-8\">\n    <title>My Page</title>\n</head>\n<body>\n    <h1>Hello World</h1>\n</body>\n</html>",
+      "language": "html",
+      "description": "Basic HTML page structure",
+      "topic": 3
+    }
+  },
+  {
+    "model": "coding_resources.codesnippet",
+    "pk": 4,
+    "fields": {
+      "title": "JavaScript Function",
+      "code": "function greet(name) {\n    return `Hello, ${name}!`;\n}\n\nconsole.log(greet(\"World\"));",
+      "language": "javascript",
+      "description": "Simple JavaScript function",
+      "topic": 4
+    }
+  },
+  {
+    "model": "coding_resources.codesnippet",
+    "pk": 5,
+    "fields": {
+      "title": "Pandas DataFrame",
+      "code": "import pandas as pd\n\ndata = {\n    \"Name\": [\"Alice\", \"Bob\", \"Charlie\"],\n    \"Age\": [25, 30, 35]\n}\ndf = pd.DataFrame(data)\nprint(df)",
+      "language": "python",
+      "description": "Creating a DataFrame with Pandas",
+      "topic": 5
+    }
+  },
+  {
+    "model": "coding_resources.codesnippet",
+    "pk": 6,
+    "fields": {
+      "title": "Matplotlib Plot",
+      "code": "import matplotlib.pyplot as plt\n\nx = [1, 2, 3, 4, 5]\ny = [2, 4, 6, 8, 10]\n\nplt.plot(x, y)\nplt.xlabel(\"X-axis\")\nplt.ylabel(\"Y-axis\")\nplt.title(\"Simple Line Plot\")\nplt.show()",
+      "language": "python",
+      "description": "Basic line plot with Matplotlib",
+      "topic": 6
+    }
+  }
+]

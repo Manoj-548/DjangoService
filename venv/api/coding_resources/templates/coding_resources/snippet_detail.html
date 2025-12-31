@@ -1,0 +1,12 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>{{ snippet.title }}</title>
+</head>
+<body>
+    <h1>{{ snippet.title }}</h1>
+    <p><strong>Language:</strong> {{ snippet.language }}</p>
+    <pre><code>{{ snippet.code }}</code></pre>
+    <a href="{% url 'snippet_list' snippet.topic.id %}">Back to Snippets</a>
+</body>
+</html>

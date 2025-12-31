@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Code Snippets for {{ topic.title }}</title>
+</head>
+<body>
+    <h1>Code Snippets for {{ topic.title }}</h1>
+    {% for snippet in snippets %}
+        <h2>{{ snippet.title }}</h2>
+        <pre><code>{{ snippet.code }}</code></pre>
+        <p>Language: {{ snippet.language }}</p>
+    {% endfor %}
+    <a href="{% url 'coding_resources:topic_list' topic.category.id %}">Back to Topics</a>
+</body>
+</html>

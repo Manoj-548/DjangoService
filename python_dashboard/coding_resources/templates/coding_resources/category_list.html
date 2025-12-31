@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Python Coding Resources Dashboard</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            padding: 0;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+        }
+        .header {
+            background-color: rgba(255, 255, 255, 0.1);
+            color: white;
+            padding: 30px;
+            text-align: center;
+            backdrop-filter: blur(10px);
+        }
+        .container {
+            max-width: 1200px;
+            margin: 20px auto;
+            padding: 20px;
+            background-color: white;
+            border-radius: 12px;
+            box-shadow: 0 8px 32px rgba(0,0,0,0.1);
+        }
+        .nav {
+            background-color: #007bff;
+            color: white;
+            padding: 15px;
+            text-align: center;
+            border-radius: 8px 8px 0 0;
+        }
+        .nav a {
+            color: white;
+            text-decoration: none;
+            margin: 0 20px;
+            font-weight: bold;
+        }
+        .category-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+        }
+        .category-card {
+            border: 1px solid #e0e0e0;
+            border-radius: 8px;
+            padding: 20px;
+            background-color: #f8f9fa;
+            transition: transform 0.2s, box-shadow 0.2s;
+            text-decoration: none;
+            color: #333;
+        }
+        .category-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+        }
+        .category-title {
+            font-size: 1.5em;
+            margin-bottom: 10px;
+            color: #007bff;
+            border-bottom: 2px solid #007bff;
+            padding-bottom: 5px;
+        }
+        .category-description {
+            color: #666;
+            line-height: 1.5;
+        }
+        .stats {
+            margin-top: 20px;
+            text-align: center;
+            color: #666;
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <h1>Python Coding Resources Dashboard</h1>
+        <p>Your comprehensive guide to Python programming and beyond</p>
+    </div>
+    <div class="nav">
+        <a href="{% url 'admin:index' %}">Admin</a>
+        <a href="{% url 'coding_resources:category_list' %}">Categories</a>
+    </div>
+    <div class="container">
+        <h2>Explore Categories</h2>
+        <div class="category-grid">
+            {% for category in categories %}
+            <a href="{% url 'coding_resources:topic_list' category.id %}" class="category-card">
+                <h3 class="category-title">{{ category.name }}</h3>
+                <p class="category-description">{{ category.description }}</p>
+            </a>
+            {% endfor %}
+        </div>
+        <div class="stats">
+            <p>Total Categories: {{ categories|length }}</p>
+        </div>
+    </div>
+</body>
+</html>

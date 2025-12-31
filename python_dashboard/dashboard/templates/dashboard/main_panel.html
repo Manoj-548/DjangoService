@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Django Dashboard Hub</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            color: #333;
+        }
+
+        .header {
+            background-color: rgba(255, 255, 255, 0.1);
+            color: white;
+            padding: 30px;
+            text-align: center;
+            backdrop-filter: blur(10px);
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 20px auto;
+            padding: 20px;
+            background-color: white;
+            border-radius: 12px;
+            box-shadow: 0 8px 32px rgba(0,0,0,0.1);
+        }
+
+        .tabs {
+            display: flex;
+            border-bottom: 2px solid #e0e0e0;
+            margin-bottom: 20px;
+            overflow-x: auto;
+        }
+
+        .tab {
+            padding: 15px 25px;
+            background-color: #f8f9fa;
+            border: none;
+            cursor: pointer;
+            font-size: 16px;
+            font-weight: 500;
+            color: #666;
+            border-radius: 8px 8px 0 0;
+            margin-right: 5px;
+            transition: all 0.3s ease;
+            white-space: nowrap;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .tab:hover {
+            background-color: #e9ecef;
+            color: #007bff;
+        }
+
+        .tab.active {
+            background-color: #007bff;
+            color: white;
+            border-bottom: 2px solid #007bff;
+        }
+
+        .tab-content {
+            display: none;
+            padding: 20px;
+            background-color: #f8f9fa;
+            border-radius: 8px;
+            min-height: 600px;
+        }
+
+        .tab-content.active {
+            display: block;
+        }
+
+        .app-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+        }
+
+        .app-card {
+            background: white;
+            border-radius: 12px;
+            padding: 25px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            cursor: pointer;
+            text-decoration: none;
+            color: inherit;
+            display: block;
+        }
+
+        .app-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 25px rgba(0,0,0,0.15);
+        }
+
+        .app-icon {
+            font-size: 3em;
+            color: #007bff;
+            margin-bottom: 15px;
+            text-align: center;
+        }
+
+        .app-title {
+            font-size: 1.5em;
+            font-weight: bold;
+            color: #333;
+            margin-bottom: 10px;
+            text-align: center;
+        }
+
+        .app-description {
+            color: #666;
+            line-height: 1.6;
+            text-align: center;
+        }
+
+        .iframe-container {
+            width: 100%;
+            height: 600px;
+            border: none;
+            border-radius: 8px;
+            background-color: white;
+        }
+
+        .stats {
+            margin-top: 20px;
+            text-align: center;
+            color: #666;
+        }
+
+        @media (max-width: 768px) {
+            .tabs {
+                flex-direction: column;
+            }
+
+            .tab {
+                margin-right: 0;
+                margin-bottom: 5px;
+            }
+
+            .app-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <h1><i class="fas fa-tachometer-alt"></i> Django Dashboard Hub</h1>
+        <p>Your central hub for all Django applications and dashboards</p>
+    </div>
+
+    <div class="container">
+        <div class="tabs">
+            <button class="tab active" onclick="showTab('overview')">
+                <i class="fas fa-home"></i> Overview
+            </button>
+            {% for app in apps %}
+            <button class="tab" onclick="showTab('{{ app.url_path }}')">
+                <i class="{{ app.icon|default:'fas fa-cube' }}"></i> {{ app.display_name }}
+            </button>
+            {% endfor %}
+        </div>
+
+        <div id="overview" class="tab-content active">
+            <h2>Available Applications</h2>
+            <div class="app-grid">
+                {% for app in apps %}
+                <a href="#" class="app-card" onclick="showTab('{{ app.url_path }}')">
+                    <div class="app-icon">
+                        <i class="{{ app.icon|default:'fas fa-cube' }}"></i>
+                    </div>
+                    <div class="app-title">{{ app.display_name }}</div>
+                    <div class="app-description">{{ app.description|default:'No description available' }}</div>
+                </a>
+                {% endfor %}
+            </div>
+            <div class="stats">
+                <p>Total Applications: {{ apps|length }}</p>
+            </div>
+        </div>
+
+        {% for app in apps %}
+        <div id="{{ app.url_path }}" class="tab-content">
+            <h2>{{ app.display_name }}</h2>
+            <iframe src="/{{ app.url_path }}/" class="iframe-container" title="{{ app.display_name }}"></iframe>
+        </div>
+        {% endfor %}
+    </div>
+
+    <script>
+        function showTab(tabName) {
+            // Hide all tab contents
+            const tabContents = document.querySelectorAll('.tab-content');
+            tabContents.forEach(content => content.classList.remove('active'));
+
+            // Remove active class from all tabs
+            const tabs = document.querySelectorAll('.tab');
+            tabs.forEach(tab => tab.classList.remove('active'));
+
+            // Show selected tab content
+            const selectedTab = document.getElementById(tabName);
+            if (selectedTab) {
+                selectedTab.classList.add('active');
+            }
+
+            // Add active class to clicked tab
+            event.target.classList.add('active');
+        }
+    </script>
+</body>
+</html>

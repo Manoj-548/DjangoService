@@ -1,0 +1,365 @@
+[
+  {
+    "model": "coding_resources.category",
+    "pk": 1,
+    "fields": {
+      "name": "Python Programming",
+      "description": "Learn Python from basics to advanced"
+    }
+  },
+  {
+    "model": "coding_resources.category",
+    "pk": 2,
+    "fields": {
+      "name": "Web Development",
+      "description": "Build modern web applications"
+    }
+  },
+  {
+    "model": "coding_resources.category",
+    "pk": 3,
+    "fields": {
+      "name": "Data Science",
+      "description": "Analyze and visualize data"
+    }
+  },
+  {
+    "model": "coding_resources.topic",
+    "pk": 1,
+    "fields": {
+      "title": "Python Basics",
+      "description": "Fundamental concepts of Python",
+      "category": 1
+    }
+  },
+  {
+    "model": "coding_resources.topic",
+    "pk": 2,
+    "fields": {
+      "title": "Data Structures",
+      "description": "Lists, tuples, dictionaries, and sets",
+      "category": 1
+    }
+  },
+  {
+    "model": "coding_resources.topic",
+    "pk": 3,
+    "fields": {
+      "title": "Functions & Modules",
+      "description": "Function definitions, parameters, and modules",
+      "category": 1
+    }
+  },
+  {
+    "model": "coding_resources.topic",
+    "pk": 4,
+    "fields": {
+      "title": "Object-Oriented Programming",
+      "description": "Classes, objects, and inheritance",
+      "category": 1
+    }
+  },
+  {
+    "model": "coding_resources.topic",
+    "pk": 5,
+    "fields": {
+      "title": "File Handling",
+      "description": "Reading and writing files",
+      "category": 1
+    }
+  },
+  {
+    "model": "coding_resources.topic",
+    "pk": 6,
+    "fields": {
+      "title": "Error Handling",
+      "description": "Exception handling and debugging",
+      "category": 1
+    }
+  },
+  {
+    "model": "coding_resources.topic",
+    "pk": 7,
+    "fields": {
+      "title": "Libraries & Frameworks",
+      "description": "Popular Python libraries and frameworks",
+      "category": 1
+    }
+  },
+  {
+    "model": "coding_resources.topic",
+    "pk": 8,
+    "fields": {
+      "title": "Best Practices",
+      "description": "Code style, documentation, and testing",
+      "category": 1
+    }
+  },
+  {
+    "model": "coding_resources.topic",
+    "pk": 9,
+    "fields": {
+      "title": "HTML & CSS",
+      "description": "Structure and style web pages",
+      "category": 2
+    }
+  },
+  {
+    "model": "coding_resources.topic",
+    "pk": 10,
+    "fields": {
+      "title": "JavaScript",
+      "description": "Interactive web development",
+      "category": 2
+    }
+  },
+  {
+    "model": "coding_resources.topic",
+    "pk": 11,
+    "fields": {
+      "title": "Pandas",
+      "description": "Data manipulation and analysis",
+      "category": 3
+    }
+  },
+  {
+    "model": "coding_resources.topic",
+    "pk": 12,
+    "fields": {
+      "title": "Matplotlib",
+      "description": "Data visualization",
+      "category": 3
+    }
+  },
+  {
+    "model": "coding_resources.codesnippet",
+    "pk": 1,
+    "fields": {
+      "title": "Hello World",
+      "code": "print(\"Hello, World!\")",
+      "language": "python",
+      "description": "Basic print statement",
+      "topic": 1
+    }
+  },
+  {
+    "model": "coding_resources.codesnippet",
+    "pk": 2,
+    "fields": {
+      "title": "Variables and Data Types",
+      "code": "# Variables\nname = \"Alice\"\nage = 25\nheight = 5.7\nis_student = True\n\n# Data Types\nprint(type(name))    # <class 'str'>\nprint(type(age))     # <class 'int'>\nprint(type(height))  # <class 'float'>\nprint(type(is_student))  # <class 'bool'>",
+      "language": "python",
+      "description": "Variable declaration and basic data types",
+      "topic": 1
+    }
+  },
+  {
+    "model": "coding_resources.codesnippet",
+    "pk": 3,
+    "fields": {
+      "title": "Control Flow",
+      "code": "# If-else statement\nage = 18\nif age >= 18:\n    print(\"You are an adult\")\nelse:\n    print(\"You are a minor\")\n\n# For loop\nfruits = [\"apple\", \"banana\", \"cherry\"]\nfor fruit in fruits:\n    print(fruit)\n\n# While loop\ncount = 0\nwhile count < 5:\n    print(count)\n    count += 1",
+      "language": "python",
+      "description": "Conditional statements and loops",
+      "topic": 1
+    }
+  },
+  {
+    "model": "coding_resources.codesnippet",
+    "pk": 4,
+    "fields": {
+      "title": "Lists Operations",
+      "code": "# Creating lists\nfruits = [\"apple\", \"banana\", \"cherry\"]\nnumbers = [1, 2, 3, 4, 5]\n\n# Accessing elements\nprint(fruits[0])  # apple\nprint(fruits[-1]) # cherry\n\n# Modifying lists\nfruits.append(\"orange\")\nfruits.insert(1, \"grape\")\nfruits.remove(\"banana\")\n\n# List comprehension\nsquares = [x**2 for x in numbers]\nprint(squares)  # [1, 4, 9, 16, 25]",
+      "language": "python",
+      "description": "List creation, access, and manipulation",
+      "topic": 2
+    }
+  },
+  {
+    "model": "coding_resources.codesnippet",
+    "pk": 5,
+    "fields": {
+      "title": "Dictionaries",
+      "code": "# Creating dictionaries\nperson = {\n    \"name\": \"Alice\",\n    \"age\": 25,\n    \"city\": \"New York\"\n}\n\n# Accessing values\nprint(person[\"name\"])  # Alice\nprint(person.get(\"age\"))  # 25\n\n# Modifying dictionaries\nperson[\"email\"] = \"alice@example.com\"\nperson[\"age\"] = 26\n\n# Dictionary methods\ndel person[\"city\"]\nprint(person.keys())   # dict_keys(['name', 'age', 'email'])\nprint(person.values()) # dict_values(['Alice', 26, 'alice@example.com'])",
+      "language": "python",
+      "description": "Dictionary operations and methods",
+      "topic": 2
+    }
+  },
+  {
+    "model": "coding_resources.codesnippet",
+    "pk": 6,
+    "fields": {
+      "title": "Function Definition",
+      "code": "# Simple function\ndef greet(name):\n    return f\"Hello, {name}!\"\n\nprint(greet(\"Alice\"))  # Hello, Alice!\n\n# Function with default parameters\ndef greet_person(name, greeting=\"Hello\"):\n    return f\"{greeting}, {name}!\"\n\nprint(greet_person(\"Bob\"))  # Hello, Bob!\nprint(greet_person(\"Bob\", \"Hi\"))  # Hi, Bob!\n\n# Function with multiple return values\ndef get_user_info():\n    name = \"Alice\"\n    age = 25\n    return name, age\n\nuser_name, user_age = get_user_info()\nprint(f\"{user_name} is {user_age} years old\")",
+      "language": "python",
+      "description": "Function definitions with various parameter types",
+      "topic": 3
+    }
+  },
+  {
+    "model": "coding_resources.codesnippet",
+    "pk": 7,
+    "fields": {
+      "title": "Modules and Imports",
+      "code": "# Importing modules\nimport math\nimport random as rnd\nfrom datetime import datetime\n\n# Using module functions\nprint(math.sqrt(16))  # 4.0\nprint(rnd.randint(1, 10))  # Random number between 1-10\nprint(datetime.now())  # Current date and time\n\n# Creating a custom module (in separate file)\n# my_module.py\ndef add_numbers(a, b):\n    return a + b\n\ndef multiply_numbers(a, b):\n    return a * b\n\n# Importing from custom module\nfrom my_module import add_numbers, multiply_numbers\n\nprint(add_numbers(5, 3))  # 8\nprint(multiply_numbers(5, 3))  # 15",
+      "language": "python",
+      "description": "Importing and using modules",
+      "topic": 3
+    }
+  },
+  {
+    "model": "coding_resources.codesnippet",
+    "pk": 8,
+    "fields": {
+      "title": "Class Definition",
+      "code": "class Person:\n    def __init__(self, name, age):\n        self.name = name\n        self.age = age\n    \n    def greet(self):\n        return f\"Hello, my name is {self.name} and I am {self.age} years old.\"\n    \n    def have_birthday(self):\n        self.age += 1\n        return f\"Happy birthday! Now I'm {self.age} years old.\"\n\n# Creating objects\nperson1 = Person(\"Alice\", 25)\nperson2 = Person(\"Bob\", 30)\n\nprint(person1.greet())  # Hello, my name is Alice and I am 25 years old.\nprint(person2.greet())  # Hello, my name is Bob and I am 30 years old.\n\nprint(person1.have_birthday())  # Happy birthday! Now I'm 26 years old.",
+      "language": "python",
+      "description": "Simple class with constructor and method",
+      "topic": 4
+    }
+  },
+  {
+    "model": "coding_resources.codesnippet",
+    "pk": 9,
+    "fields": {
+      "title": "Inheritance",
+      "code": "class Animal:\n    def __init__(self, name):\n        self.name = name\n    \n    def speak(self):\n        return \"I am an animal\"\n\nclass Dog(Animal):\n    def speak(self):\n        return \"Woof!\"\n    \n    def fetch(self):\n        return f\"{self.name} is fetching the ball\"\n\nclass Cat(Animal):\n    def speak(self):\n        return \"Meow!\"\n    \n    def scratch(self):\n        return f\"{self.name} is scratching\"\n\n# Creating objects\ndog = Dog(\"Buddy\")\ncat = Cat(\"Whiskers\")\n\nprint(dog.speak())  # Woof!\nprint(cat.speak())  # Meow!\n\nprint(dog.fetch())  # Buddy is fetching the ball\nprint(cat.scratch())  # Whiskers is scratching",
+      "language": "python",
+      "description": "Class inheritance and method overriding",
+      "topic": 4
+    }
+  },
+  {
+    "model": "coding_resources.codesnippet",
+    "pk": 10,
+    "fields": {
+      "title": "File Reading",
+      "code": "# Reading a text file\ntry:\n    with open(\"example.txt\", \"r\") as file:\n        content = file.read()\n        print(content)\n        \n        # Reading line by line\n        file.seek(0)  # Reset file pointer\n        for line in file:\n            print(line.strip())\n            \nexcept FileNotFoundError:\n    print(\"File not found\")\nexcept IOError:\n    print(\"Error reading file\")\n\n# Reading with context manager (automatic file closing)\nwith open(\"example.txt\", \"r\") as file:\n    lines = file.readlines()\n    print(f\"File has {len(lines)} lines\")",
+      "language": "python",
+      "description": "Reading files with error handling",
+      "topic": 5
+    }
+  },
+  {
+    "model": "coding_resources.codesnippet",
+    "pk": 11,
+    "fields": {
+      "title": "File Writing",
+      "code": "# Writing to a file\nwith open(\"output.txt\", \"w\") as file:\n    file.write(\"Hello, World!\\n\")\n    file.write(\"This is a new line.\\n\")\n\n# Appending to a file\nwith open(\"output.txt\", \"a\") as file:\n    file.write(\"This line is appended.\\n\")\n\n# Writing multiple lines\nlines = [\"Line 1\", \"Line 2\", \"Line 3\"]\nwith open(\"output.txt\", \"w\") as file:\n    for line in lines:\n        file.write(line + \"\\n\")\n\n# Using writelines\nwith open(\"output.txt\", \"w\") as file:\n    file.writelines([line + \"\\n\" for line in lines])",
+      "language": "python",
+      "description": "Writing and appending to files",
+      "topic": 5
+    }
+  },
+  {
+    "model": "coding_resources.codesnippet",
+    "pk": 12,
+    "fields": {
+      "title": "Exception Handling",
+      "code": "# Basic try-except\ntry:\n    result = 10 / 0\nexcept ZeroDivisionError:\n    print(\"Cannot divide by zero\")\n\n# Multiple exceptions\ntry:\n    number = int(\"abc\")\nexcept ValueError:\n    print(\"Invalid number\")\nexcept TypeError:\n    print(\"Type error occurred\")\n\n# Try-except-else-finally\ntry:\n    file = open(\"example.txt\", \"r\")\n    content = file.read()\nexcept FileNotFoundError:\n    print(\"File not found\")\nelse:\n    print(\"File read successfully\")\n    print(content)\nfinally:\n    try:\n        file.close()\n    except NameError:\n        pass  # File was never opened\n\n# Raising exceptions\ndef validate_age(age):\n    if age < 0:\n        raise ValueError(\"Age cannot be negative\")\n    if age > 150:\n        raise ValueError(\"Age cannot be greater than 150\")\n    return True\n\ntry:\n    validate_age(-5)\nexcept ValueError as e:\n    print(e)",
+      "language": "python",
+      "description": "Exception handling patterns",
+      "topic": 6
+    }
+  },
+  {
+    "model": "coding_resources.codesnippet",
+    "pk": 13,
+    "fields": {
+      "title": "Custom Exceptions",
+      "code": "class CustomError(Exception):\n    \"\"\"Custom exception class\"\"\"\n    def __init__(self, message, error_code=None):\n        super().__init__(message)\n        self.error_code = error_code\n\nclass ValidationError(CustomError):\n    \"\"\"Exception for validation errors\"\"\"\n    pass\n\nclass DatabaseError(CustomError):\n    \"\"\"Exception for database errors\"\"\"\n    pass\n\ndef validate_user_data(name, age):\n    if not name:\n        raise ValidationError(\"Name cannot be empty\", \"EMPTY_NAME\")\n    if not isinstance(age, int) or age < 0:\n        raise ValidationError(\"Age must be a positive integer\", \"INVALID_AGE\")\n    return True\n\ndef save_to_database(data):\n    # Simulate database error\n    raise DatabaseError(\"Connection failed\", \"DB_CONN_ERROR\")\n\n# Using custom exceptions\ntry:\n    validate_user_data(\"\", 25)\n    save_to_database({\"name\": \"Alice\", \"age\": 25})\nexcept ValidationError as e:\n    print(f\"Validation error: {e}, Code: {e.error_code}\")\nexcept DatabaseError as e:\n    print(f\"Database error: {e}, Code: {e.error_code}\")\nexcept CustomError as e:\n    print(f\"Custom error: {e}, Code: {e.error_code}\")",
+      "language": "python",
+      "description": "Creating and using custom exceptions",
+      "topic": 6
+    }
+  },
+  {
+    "model": "coding_resources.codesnippet",
+    "pk": 14,
+    "fields": {
+      "title": "NumPy Arrays",
+      "code": "import numpy as np\n\n# Creating arrays\narr1 = np.array([1, 2, 3, 4, 5])\narr2 = np.array([[1, 2], [3, 4]])\nzeros = np.zeros((3, 3))\nones = np.ones((2, 4))\nrandom_arr = np.random.rand(3, 3)\n\nprint(\"1D Array:\", arr1)\nprint(\"2D Array:\")\nprint(arr2)\nprint(\"Zeros array:\")\nprint(zeros)\n\n# Array operations\nprint(\"Sum:\", np.sum(arr1))  # 15\nprint(\"Mean:\", np.mean(arr1))  # 3.0\nprint(\"Max:\", np.max(arr1))  # 5\n\n# Array indexing and slicing\nprint(\"First element:\", arr1[0])  # 1\nprint(\"Last element:\", arr1[-1])  # 5\nprint(\"First three elements:\", arr1[:3])  # [1 2 3]\nprint(\"Even indices:\", arr1[::2])  # [1 3 5]",
+      "language": "python",
+      "description": "NumPy array creation and operations",
+      "topic": 7
+    }
+  },
+  {
+    "model": "coding_resources.codesnippet",
+    "pk": 15,
+    "fields": {
+      "title": "Requests Library",
+      "code": "import requests\n\n# GET request\nresponse = requests.get('https://api.github.com/user', auth=('user', 'pass'))\nprint(response.status_code)\nprint(response.headers['content-type'])\n\n# POST request\ndata = {'key': 'value'}\nresponse = requests.post('https://httpbin.org/post', json=data)\nprint(response.json())\n\n# Handling errors\ntry:\n    response = requests.get('https://httpbin.org/status/404')\n    response.raise_for_status()  # Raises an HTTPError for bad responses\nexcept requests.exceptions.HTTPError as err:\n    print(f'HTTP error occurred: {err}')\nexcept requests.exceptions.RequestException as err:\n    print(f'Request error occurred: {err}')\n\n# Using sessions for multiple requests\nwith requests.Session() as session:\n    session.auth = ('user', 'pass')\n    session.headers.update({'User-Agent': 'MyApp/1.0'})\n    \n    response = session.get('https://api.github.com/user')\n    print(response.json())",
+      "language": "python",
+      "description": "HTTP requests with the requests library",
+      "topic": 7
+    }
+  },
+  {
+    "model": "coding_resources.codesnippet",
+    "pk": 16,
+    "fields": {
+      "title": "PEP 8 Style Guide",
+      "code": "# Good naming conventions\nclass UserAccount:\n    def __init__(self, user_name, user_email):\n        self.user_name = user_name\n        self.user_email = user_email\n\n    def get_user_info(self):\n        return f\"{self.user_name} ({self.user_email})\"\n\n# Bad naming (avoid)\nclass useraccount:\n    def __init__(self, username, useremail):\n        self.username = username\n        self.useremail = useremail\n\n    def getuserinfo(self):\n        return f\"{self.username} ({self.useremail})\"\n\n# Proper indentation and line length\ndef calculate_total_price(items, tax_rate=0.08, discount=0):\n    \"\"\"\n    Calculate total price including tax and discount.\n    \n    Args:\n        items (list): List of item prices\n        tax_rate (float): Tax rate as decimal (default 8%)\n        discount (float): Discount amount (default $0)\n    \n    Returns:\n        float: Total price after tax and discount\n    \"\"\"\n    subtotal = sum(items)\n    tax_amount = subtotal * tax_rate\n    total = subtotal + tax_amount - discount\n    return round(total, 2)\n\n# Usage\nprices = [10.99, 5.49, 8.75]\ntotal = calculate_total_price(prices, tax_rate=0.1, discount=2.00)\nprint(f\"Total: ${total}\")",
+      "language": "python",
+      "description": "PEP 8 compliant code style and documentation",
+      "topic": 8
+    }
+  },
+  {
+    "model": "coding_resources.codesnippet",
+    "pk": 17,
+    "fields": {
+      "title": "Unit Testing with unittest",
+      "code": "import unittest\n\nclass TestCalculator(unittest.TestCase):\n    \n    def setUp(self):\n        \"\"\"Set up test fixtures\"\"\"\n        self.calc = Calculator()\n    \n    def test_addition(self):\n        \"\"\"Test addition functionality\"\"\"\n        result = self.calc.add(2, 3)\n        self.assertEqual(result, 5)\n        \n        result = self.calc.add(-1, 1)\n        self.assertEqual(result, 0)\n    \n    def test_subtraction(self):\n        \"\"\"Test subtraction functionality\"\"\"\n        result = self.calc.subtract(5, 3)\n        self.assertEqual(result, 2)\n        \n        result = self.calc.subtract(3, 5)\n        self.assertEqual(result, -2)\n    \n    def test_division_by_zero(self):\n        \"\"\"Test division by zero raises exception\"\"\"\n        with self.assertRaises(ZeroDivisionError):\n            self.calc.divide(10, 0)\n    \n    def tearDown(self):\n        \"\"\"Clean up test fixtures\"\"\"\n        del self.calc\n\nclass Calculator:\n    def add(self, a, b):\n        return a + b\n    \n    def subtract(self, a, b):\n        return a - b\n    \n    def multiply(self, a, b):\n        return a * b\n    \n    def divide(self, a, b):\n        if b == 0:\n            raise ZeroDivisionError(\"Cannot divide by zero\")\n        return a / b\n\nif __name__ == '__main__':\n    unittest.main()",
+      "language": "python",
+      "description": "Writing unit tests with Python's unittest module",
+      "topic": 8
+    }
+  },
+  {
+    "model": "coding_resources.codesnippet",
+    "pk": 18,
+    "fields": {
+      "title": "HTML Structure",
+      "code": "<!DOCTYPE html>\n<html lang=\"en\">\n<head>\n    <meta charset=\"UTF-8\">\n    <title>My Page</title>\n</head>\n<body>\n    <h1>Hello World</h1>\n</body>\n</html>",
+      "language": "html",
+      "description": "Basic HTML page structure",
+      "topic": 9
+    }
+  },
+  {
+    "model": "coding_resources.codesnippet",
+    "pk": 19,
+    "fields": {
+      "title": "JavaScript Function",
+      "code": "function greet(name) {\n    return `Hello, ${name}!`;\n}\n\nconsole.log(greet(\"World\"));",
+      "language": "javascript",
+      "description": "Simple JavaScript function",
+      "topic": 10
+    }
+  },
+  {
+    "model": "coding_resources.codesnippet",
+    "pk": 20,
+    "fields": {
+      "title": "Pandas DataFrame",
+      "code": "import pandas as pd\n\ndata = {\n    \"Name\": [\"Alice\", \"Bob\", \"Charlie\"],\n    \"Age\": [25, 30, 35]\n}\ndf = pd.DataFrame(data)\nprint(df)",
+      "language": "python",
+      "description": "Creating a DataFrame with Pandas",
+      "topic": 11
+    }
+  },
+  {
+    "model": "coding_resources.codesnippet",
+    "pk": 21,
+    "fields": {
+      "title": "Matplotlib Plot",
+      "code": "import matplotlib.pyplot as plt\n\nx = [1, 2, 3, 4, 5]\ny = [2, 4, 6, 8, 10]\n\nplt.plot(x, y)\nplt.xlabel(\"X-axis\")\nplt.ylabel(\"Y-axis\")\nplt.title(\"Simple Line Plot\")\nplt.show()",
+      "language": "python",
+      "description": "Basic line plot with Matplotlib",
+      "topic": 12
+    }
+  }
+]

@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ category.name }} - Topics</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+        }
+        .header {
+            background-color: #333;
+            color: white;
+            padding: 20px;
+            text-align: center;
+        }
+        .container {
+            max-width: 1200px;
+            margin: 20px auto;
+            padding: 20px;
+            background-color: white;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+        }
+        .topic-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+        }
+        .topic-card {
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            padding: 20px;
+            text-decoration: none;
+            color: #333;
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+        .topic-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+        .topic-title {
+            font-size: 1.3em;
+            margin-bottom: 10px;
+            color: #007bff;
+        }
+        .topic-description {
+            color: #666;
+        }
+        .nav {
+            background-color: #007bff;
+            color: white;
+            padding: 10px;
+            text-align: center;
+        }
+        .nav a {
+            color: white;
+            text-decoration: none;
+            margin: 0 15px;
+        }
+        .breadcrumb {
+            margin-bottom: 20px;
+            font-size: 0.9em;
+        }
+        .breadcrumb a {
+            color: #007bff;
+            text-decoration: none;
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <h1>{{ category.name }}</h1>
+        <p>{{ category.description }}</p>
+    </div>
+    <div class="nav">
+        <a href="{% url 'admin:index' %}">Admin</a>
+        <a href="{% url 'coding_resources:category_list' %}">Categories</a>
+    </div>
+    <div class="container">
+        <div class="breadcrumb">
+            <a href="{% url 'coding_resources:category_list' %}">Categories</a> > {{ category.name }}
+        </div>
+        <h2>Topics</h2>
+        <div class="topic-grid">
+            {% for topic in topics %}
+            <a href="{% url 'coding_resources:snippet_list' topic.id %}" class="topic-card">
+                <h3 class="topic-title">{{ topic.title }}</h3>
+                <p class="topic-description">{{ topic.description }}</p>
+            </a>
+            {% endfor %}
+        </div>
+    </div>
+</body>
+</html>

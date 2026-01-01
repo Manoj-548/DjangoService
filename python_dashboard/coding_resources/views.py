@@ -17,3 +17,29 @@ def snippet_list(request, topic_id):
     topic = get_object_or_404(Topic, id=topic_id)
     snippets = CodeSnippet.objects.filter(topic=topic)
     return render(request, 'coding_resources/snippet_list.html', {'topic': topic, 'snippets': snippets})
+
+from django.http import JsonResponse
+from django.views.decorators.csrf import csrf_exempt
+from .models import Category
+import json
+
+
+def list_categories(request):
+    categories = Category.objects.filter(is_active=True).values(
+        "id", "name", "description"
+    )
+    return JsonResponse({"categories": list(categories)})
+
+
+@csrf_exempt
+def create_category(request):
+    if request.method == "POST":
+        data = json.loads(request.body)
+        category = Category.objects.create(
+            name=data["name"],
+            description=data.get("description", "")
+        )
+        return JsonResponse({
+            "id": category.id,
+            "name": category.name
+        })
